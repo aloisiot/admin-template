@@ -22,6 +22,7 @@ export default function MenuLateral(){
             </ul>
             <ul>
                 <MenuItem onClick={() => console.log("logout")}
+                    url="/autenticacao"
                     texto="Sair"
                     icone={IconeLogOut}
                     className={`
