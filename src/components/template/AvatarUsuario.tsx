@@ -8,7 +8,7 @@ export default function AvatarUsuario(){
     
     return (
         <Link href="/perfil" passHref>
-            <div className="h-10 w-10">
+            <div className="h-10 w-10 cursor-pointer">
                 <Image
                     className="rounded-full"
                     height={40}

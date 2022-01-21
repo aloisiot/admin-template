@@ -12,9 +12,9 @@ export default function Cabecalho(props: CabecalhoProps){
     const {tema, alternarTema} = useAppData()
 
     return (
-        <div className={`flex gap-2`}>
+        <div className={`flex gap-3`}>
             <Titulo titulo={props.titulo} subtitulo={props.subtitulo}/>
-            <div className={`flex flex-grow items-center justify-end gap-2`}>
+            <div className={`flex flex-grow items-center justify-end gap-3`}>
                 <BotaoAlternarTema tema={tema} alternarTema={alternarTema}/>
                 <AvatarUsuario/>
             </div>

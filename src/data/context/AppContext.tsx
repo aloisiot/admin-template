@@ -1,22 +1,32 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
-type Tema = "dark" | ""
+type Tema = "" | "dark"
 
 interface AppContextProps{
-    tema: Tema
+    tema: string
     alternarTema?: () => void
 }
 
 const AppContext = createContext<AppContextProps>({
-    tema: '',
+    tema: "",
 })
 
 export function AppProvider(props){
-    const [tema, setTema] = useState<Tema>()
+    const [tema, setTema] = useState<Tema>("")
 
     function alternarTema(){
-        setTema(tema === "" ? "dark" : "")
+        const novoTema: Tema =  tema === "" ? "dark" : ""
+        localStorage.setItem("tema", novoTema)
+        setTema(novoTema)
     }
+
+    useEffect(() => {
+        const temaSalvo = localStorage.getItem("tema")
+        if(temaSalvo === "dark" || temaSalvo === ""){
+            setTema(temaSalvo)
+        }
+    }, [])
+
     return (
         <AppContext.Provider value={{
             tema,
